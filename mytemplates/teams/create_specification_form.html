@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form action='/teams/create_specification' method='GET'>
+        {% csrf_token %}
+        <label for="name">Specification's name:</label>
+        <input type="text" name="name" value="">
+        <input type="submit" value="Create specification" />
+    </form>
+
+{% endblock content %}

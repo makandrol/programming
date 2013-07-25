@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Specification:</h1>
+    <body>{{ specification }}</body><br>
+    <body>Specification's jobs</body>
+
+    {% if jobs %}
+        <ul>
+            {% for job in jobs %}
+                <li><a href="/teams/job{{ job.id }}">{{ job }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No jobs.</p>
+    {% endif %}
+
+    <form method="GET" action="http://localhost:8000/teams/create_job_form">
+        {% csrf_token %}
+
+        <input type="submit" value="Add job to specification" />
+        <input type="hidden" name="specification_id" value= "{{ specification.id }}" >
+    </form>
+
+{% endblock content %}

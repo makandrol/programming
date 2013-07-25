@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form method="GET" action="http://localhost:8000/teams/create_job">
+        {% csrf_token %}
+
+        <label for="qualification">Developer qualification </label>
+        <input type="text" name="qualification" value="">
+
+        <input type="submit" value="Create job" />
+        <input type="hidden" name="specification_id" value={{ specification_id }}>
+    </form>
+
+{% endblock content %}

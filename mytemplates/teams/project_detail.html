@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Project:</h1>
+    <body>{{ project }}</body><br><br>
+
+    <body>Free jobs:</body>
+    {% if free_jobs %}
+        <ul>
+            {% for job in free_jobs %}
+                <li><a href="/teams/job{{ job.id }}">{{ job }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No free jobs.</p>
+    {% endif %}
+
+    <body>Busy jobs:</body>
+    {% if busy_jobs %}
+        <ul>
+            {% for job in busy_jobs %}
+                <li>{{ job }} with developer - {{ job.developer }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No busy jobs.</p>
+    {% endif %}
+
+{% endblock content %}

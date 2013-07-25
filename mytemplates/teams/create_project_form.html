@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form method="GET" action="http://localhost:8000/teams/create_project">
+        {% csrf_token %}
+
+        <label for="name">Project's name:</label>
+        <input type="text" name="name" value="">
+
+        <label for="specification_id">Specification's id</label>
+        <input type="text" name="specification_id" value="">
+
+        <input type="submit" value="Create project" />
+    </form>
+
+{% endblock content %}

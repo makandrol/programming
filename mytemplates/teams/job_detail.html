@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Job:</h1>
+    <body>{{ job }}</body><br>
+    <body>Choose developer for your job</body>
+    {% if developers %}
+        <ul>
+            {% for developer in developers %}
+
+                {{ developer|capfirst }}
+                <form method="GET" action="http://localhost:8000/teams/choose">
+                    {% csrf_token %}
+                    <input type="submit" value="Choose this developer" />
+                    <input type="hidden" name="job_id" value={{ job.id }}>
+                    <input type="hidden" name="developer_id" value={{ developer.id }}>
+                </form>
+
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No available developers.</p>
+    {% endif %}
+
+{% endblock content %}

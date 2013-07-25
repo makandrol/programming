@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1> All specifications </h1>
+    {% if specifications %}
+        <ul>
+            {% for specification in specifications %}
+                <li><a href="/teams/specification{{ specification.id }}">{{ specification }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No specifications.</p>
+    {% endif %}
+
+    <a href="http://localhost:8000/teams/create_specification_form">Create new specification</a><br><br>
+
+{% endblock content %}

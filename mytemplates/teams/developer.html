@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>You are:</h1>
+    <body>{{ developer }}</body><br>
+    {% if jobs %}
+        <body>Your jobs:</body><br>
+        <ul>
+            {% for job in jobs %}
+                <li>{{ job }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't job.</p>
+    {% endif %}
+
+{% endblock content %}

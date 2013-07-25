@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1> All free specifications </h1>
+    {% if specifications %}
+        <ul>
+            {% for specification in specifications %}
+                <li>{{ specification }} (id = {{ specification.id }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No specifications.</p>
+    {% endif %}
+
+    <h1> All projects </h1>
+    {% if projects %}
+        <ul>
+            {% for project in projects %}
+                <li><a href="/teams/project{{ project.id }}">{{ project }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No projects.</p>
+    {% endif %}
+
+    <a href="http://localhost:8000/teams/create_project_form">Create new project</a><br><br>
+
+{% endblock content %}
